@@ -51,6 +51,18 @@ def populate():
             print(f'- {c}: {p}')
 
 def add_page(cat, title, url, views=0):
+    if title == "Python":
+        views = 64
+        likes = 32
+
+    elif title == "Djano":
+        views = 64
+        likes = 32
+
+    elif title == "Other Frameworks":
+        views = 32
+        likes = 16
+    
     p = Page.objects.get_or_create(category=cat, title=title)[0]
     p.url = url
     p.views = views

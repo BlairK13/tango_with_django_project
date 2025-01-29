@@ -12,14 +12,16 @@
     <h1> Rango says...</h1>
     <div>
         Hey there partner! <br />
-        <strong>{{ boldmessage }}</strong><br />
+        <strong>{{ boldmessage|safe }}</strong><br />
     </div>
 
     <div>
         {% if categories %}
         <ul>
             {% for category in categories %}
-            <li>{{ category.name }}</li>
+            <li>
+                <a href="/rango/category/{{ category.slug }}/">{{ category.name }}</a>
+            </li>
             {% endfor %}
         </ul>
         {% else %}
@@ -30,7 +32,8 @@
 
     <div>
         <a href="/rango/about/">About Rango</a><br />
-        <img src="{% static 'images/rango.jpg' %}" alt="Picture of Rango" />
+        <a href="/rango/add_category/">Add a New Category</a><br />
+        <img src="{% static 'images/rango.png' %}" alt="Picture of Rango" />
     </div>
 </body>
 
